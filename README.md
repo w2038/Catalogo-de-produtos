@@ -2,7 +2,7 @@
 
 
 ## Rotas para acessar a API:
-
+<p>Para acessar as rotas pode-se utilizar a estensão no VSCode Thunder Client</p>
 <p>Listar todos os produtos (GET /api/produtos): http://localhost:8000/api/produtos</P>
 <p>Obter detalhes de um produto específico (GET /api/produtos/{id}): http://localhost:8000/api/produtos/{id}</p>
 <p>Criar um novo produto (POST /api/produtos): http://localhost:8000/api/produtos</p>
