@@ -13,6 +13,7 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all();
+
         return response()->json($produtos);
     }
 
@@ -22,12 +23,15 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         $produto = new Produto;
+        $produto->categoria_id = $request->input('categoria_id');
+        $produto->codigo = $request->input('codigo');
         $produto->nome = $request->input('nome');
-        $produto->descricao = $request->input('descricao');
         $produto->preco = $request->input('preco');
+        $produto->preco_promocional = $request->input('preco_promocional');
+        $produto->ativo = $request->input('ativo', true);
         $produto->save();
 
-        return response()->json(['message' => 'Produto crado com sucesso']);
+        return response()->json($produto, 201);
     }
 
     /**
@@ -35,7 +39,12 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        $produto = Produto::findOrFail($id);
+        $produto = Produto::find($id);
+
+        if (!$produto) {
+            return response()->json(['message' => 'Produto não encontrado']);
+        }
+        
         return response()->json($produto);
     }
 
@@ -44,13 +53,20 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $produto = Produto::findOrFail($id);
+        $produto = Produto::find($id);
+
+        if (!$produto) {
+            return response()->json(['message'=>'Produto não encontrado'], 404);
+        }
+        $produto->categoria_id = $request->input('categoria_id');
+        $produto->codigo = $request->input('codigo');
         $produto->nome = $request->input('nome');
-        $produto->descricao = $request->input('descricao');
         $produto->preco = $request->input('preco');
+        $produto->preco_promocional = $request->input('preco_promocional');
+        $produto->ativo = $request->input('ativo', true);
         $produto->save();
 
-        return response()->json(['message'=>"Produto atualizado com sucesso"]);
+        return response()->json($produto);
     }
 
     /**
@@ -58,7 +74,12 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        $produto = Produto::findOrFail($id);
+        $produto = Produto::find($id);
+
+        if (!$produto) {
+            return response()->json(['message' => 'Produto não encontrado']);
+        }
+        
         $produto->delete();
 
         return response()->json(['message'=> 'Produto excluido com sucesso']);
