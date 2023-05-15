@@ -3,11 +3,11 @@
 
 ## Rotas para acessar a API:
 
-Listar todos os produtos (GET /api/produtos): http://localhost:8000/api/produtos
-Obter detalhes de um produto específico (GET /api/produtos/{id}): http://localhost:8000/api/produtos/{id}
-Criar um novo produto (POST /api/produtos): http://localhost:8000/api/produtos
-Atualizar um produto existente (PUT /api/produtos/{id}): http://localhost:8000/api/produtos/{id}
-Excluir um produto (DELETE /api/produtos/{id}): http://localhost:8000/api/produtos/{id}
+<p>Listar todos os produtos (GET /api/produtos): http://localhost:8000/api/produtos</P>
+<p>Obter detalhes de um produto específico (GET /api/produtos/{id}): http://localhost:8000/api/produtos/{id}</p>
+<p>Criar um novo produto (POST /api/produtos): http://localhost:8000/api/produtos</p>
+<p>Atualizar um produto existente (PUT /api/produtos/{id}): http://localhost:8000/api/produtos/{id}</p>
+<p>Excluir um produto (DELETE /api/produtos/{id}): http://localhost:8000/api/produtos/{id}</p>
 
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
